@@ -1,15 +1,15 @@
 var express = require('express');
 var path = require('path');
-
+// Init DB connection
 var db = require('mongoskin').db("localhost/testdb", { w: 0});
     db.bind('event');
 
-
+//express? look this up
 var app = express();
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(express.bodyParser());
 
-
+//init sample data
 app.get('/init', function(req, res){
 	db.event.insert({ 
 		text:"My test event A", 
@@ -36,7 +36,7 @@ app.get('/init', function(req, res){
 	res.send("Test events were added to the database")
 });
 
-
+//get all events
 app.get('/data', function(req, res){
 	db.event.find().toArray(function(err, data){
 		//set id property for all records
@@ -48,7 +48,7 @@ app.get('/data', function(req, res){
 	});
 });
 
-
+//input and data manipulation
 app.post('/data', function(req, res){
 	var data = req.body;
 	var mode = data["!nativeeditor_status"];
