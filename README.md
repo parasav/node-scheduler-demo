@@ -1,7 +1,7 @@
 node-scheduler-demo
 ===================
 
-Demo of dhtmlxScheduler with NodeJs + MongoDB as backend
+Demo of dhtmlxScheduler with NodeJs + ArangoDB as backend
 
 ### How to start
 
@@ -16,4 +16,4 @@ after that, open in a browser http://localhost:3000/init to generate a test data
 
 ### DB config
 
-App expects to find the mongoDB on localhost, you can change the server address in the app.js 
+App expects to find the ArangoDB on localhost, you can change the server address in the app.js 
